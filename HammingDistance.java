@@ -96,9 +96,5 @@ public class HammingDistance {
 		
 		return results;
 	}
-	
-	private final class HammingDistancePanel extends JPanel implements MouseListener{
-		
-	}
 
 }
