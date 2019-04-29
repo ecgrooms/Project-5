@@ -1,4 +1,6 @@
+import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,6 +12,8 @@ public class HammingDistancePanel extends JFrame{
 	
 	private static final int FRAME_WIDTH = 500;
 	private static final int FRAME_HEIGHT = 700;
+	
+	ArrayList<HammingDistance> stationList = new ArrayList<HammingDistance>();
 	
 	private final class HammingDistPanel extends JPanel{
 		
@@ -55,6 +59,24 @@ public class HammingDistancePanel extends JFrame{
 		JButton calHD = new JButton("Calculate HD");
 		JButton addID = new JButton("Add Station");
 		
+		//******************************************************************************************************
+		public HammingDistPanel(){
+			
+			
+			//Add to Panel *********************************************************************
+			window.setPreferredSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT - 300));
+			window.add(panel1);
+			window.add(panel2);
+			window.add(panel3);
+			window.add(stationList);
+			window.add(compare);
+			window.add(distance);
+			window.add(addStation);
+			
+			this.add(window);
+			
+			
+		}
 		
 		
 	}
