@@ -3,6 +3,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.JPanel;
+
 public class HammingDistance {
 	
 	private String station1;
@@ -93,6 +95,10 @@ public class HammingDistance {
 		results = new int[] {dist1, dist2, dist3, dist4};
 		
 		return results;
+	}
+	
+	private final class HammingDistancePanel extends JPanel implements MouseListener{
+		
 	}
 
 }
