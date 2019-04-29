@@ -1,5 +1,6 @@
 import java.awt.GridLayout;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -50,6 +51,10 @@ public class HammingDistancePanel extends JFrame{
 		JTextField addStationID = new JTextField();
 		
 		//JButton objects **************************************************************************************
+		JButton showStation = new JButton("Show Station");
+		JButton calHD = new JButton("Calculate HD");
+		JButton addID = new JButton("Add Station");
+		
 		
 		
 	}
