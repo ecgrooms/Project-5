@@ -3,8 +3,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.swing.JPanel;
-
 public class HammingDistance {
 	
 	private String station1;
