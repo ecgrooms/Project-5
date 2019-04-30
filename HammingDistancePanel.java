@@ -1,7 +1,9 @@
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -75,9 +77,33 @@ public class HammingDistancePanel extends JFrame{
 			
 			this.add(window);
 			
+			}
+			
+			
+			
+			//Set ActionListeners on 3 buttons ****************************************************
+			
+			
+			
+			
+			//JTextFields ***********************************************************************
+			
 			
 		}
+	
 		
+	//DefaultComboBoxModel to make combo box for station list *****************************
+	private DefaultComboBoxModel<String> getComboBoxModel(List<HammingDistance> list)
+	{
+		ArrayList<String> station = new ArrayList<String>();
+		
+		for (HammingDistance l : list){
+			station.add(l.toString());
+		}
+		
+		String[] comboBoxModel = station.toArray(new String[station.size()]);
+		
+	    return new DefaultComboBoxModel<>(comboBoxModel);
 		
 	}
 	
