@@ -64,6 +64,9 @@ public class HammingDistancePanel extends JFrame{
 		//******************************************************************************************************
 		public HammingDistPanel(){
 			
+			this.setPreferredSize(new Dimension(300, 700));
+			//this.addMouseListener(this);
+			
 			
 			//Add to Panel *********************************************************************
 			window.setPreferredSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT - 300));
