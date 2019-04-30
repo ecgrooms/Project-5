@@ -17,6 +17,8 @@ public class HammingDistancePanel extends JFrame{
 	
 	ArrayList<HammingDistance> stationList = new ArrayList<HammingDistance>();
 	
+	
+	
 	private final class HammingDistPanel extends JPanel{
 		
 		
@@ -64,9 +66,7 @@ public class HammingDistancePanel extends JFrame{
 		//******************************************************************************************************
 		public HammingDistPanel(){
 			
-			this.setPreferredSize(new Dimension(300, 700));
-			//this.addMouseListener(this);
-			
+			super();			
 			
 			//Add to Panel *********************************************************************
 			window.setPreferredSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT - 300));
@@ -78,7 +78,12 @@ public class HammingDistancePanel extends JFrame{
 			window.add(distance);
 			window.add(addStation);
 			
-			this.add(window);
+			add(window);
+			
+			setVisible(true);
+			setSize(300, 700);
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			this.setPreferredSize(new Dimension(300, 700));
 			
 			}
 			
@@ -110,5 +115,11 @@ public class HammingDistancePanel extends JFrame{
 		
 	}
 	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new HammingDistancePanel();
+		
+
+	}
 
 }
