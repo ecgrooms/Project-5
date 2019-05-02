@@ -1,4 +1,8 @@
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +15,11 @@ import javax.swing.JSlider;
 import javax.swing.JTextField;
 
 public class HammingDistanceWindow extends JFrame{
-	
-	
 		
-		private static final int FRAME_WIDTH = 500;
+		private static final int FRAME_WIDTH = 600;
 		private static final int FRAME_HEIGHT = 700;
 		
-		ArrayList<HammingDistance> stationList = new ArrayList<HammingDistance>();
+		ArrayList<String> stationIDList = new ArrayList<String>();
 		
 		
 		
@@ -29,15 +31,16 @@ public class HammingDistanceWindow extends JFrame{
 			 */
 			private static final long serialVersionUID = 1L;
 			//JPanel objects *************************************************************************************
-			
+			JPanel b = new JPanel();
 			JPanel window;
-			JPanel panel1 = new JPanel(new GridLayout(1, 2));
+			JPanel panel1 = new JPanel(new GridLayout(1, 1));
 			JPanel panel2 = new JPanel();
-			JPanel panel3 = new JPanel(new GridLayout(1,2));
-			JPanel stationList = new JPanel();
+			JPanel panel3 = new JPanel();
+			JPanel stationList = new JPanel(new GridLayout(1, 1));
 			JPanel compare = new JPanel(new GridLayout(1, 2));
-			JPanel distance = new JPanel(new GridLayout(1, 2));
-			JPanel addStation = new JPanel(new GridLayout(1, 2));
+			JPanel cal = new JPanel();
+			JPanel distance = new JPanel(new GridLayout(5, 2));
+			JPanel addStation = new JPanel();
 			
 			//JLabel objects **************************************************************************************
 			JLabel hammingDist = new JLabel("Enter Hamming Dist: ");
@@ -50,7 +53,7 @@ public class HammingDistanceWindow extends JFrame{
 			JLabel dist4 = new JLabel("Distance 4 ");
 			
 			//JText objects ***************************************************************************************
-			JTextField hammingDistNum = new JTextField();
+			JTextField hammingDistNum = new JTextField(1);
 			JTextField stationID = new JTextField();
 			
 			JTextField num0 = new JTextField();
@@ -69,9 +72,11 @@ public class HammingDistanceWindow extends JFrame{
 			//******************************************************************************************************
 			public HammingDistPanel() {
 				this.setLayout(new GridLayout(1, 1));
-				window = new JPanel(new GridLayout(7, 2));
-				window.setSize(700, 400);
-				this.add(window);
+				
+				window = new JPanel(new GridLayout(8, 2));
+				window.setSize(1000, 500);
+				this.add(window, BorderLayout.WEST);
+				this.add(b, BorderLayout.EAST);
 
 				//Add to Panel *********************************************************************
 				window.setPreferredSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT - 300));
@@ -80,6 +85,7 @@ public class HammingDistanceWindow extends JFrame{
 				window.add(panel3);
 				window.add(stationList);
 				window.add(compare);
+				window.add(cal);
 				window.add(distance);
 				window.add(addStation);
 							
@@ -93,29 +99,58 @@ public class HammingDistanceWindow extends JFrame{
 				slider.setPaintLabels(true);
 				slider.getValue();
 				panel2.add(slider);
-								
-				panel3.add(showStation);
+				
+				panel3.add(showStation, BorderLayout.WEST);
+				showStation.setLayout(new FlowLayout(FlowLayout.LEFT));
 				
 				stationList.add(stationID);
 				
 				compare.add(compareW);
 				
-				distance.add(calHD);
+				cal.add(calHD);
+				
+				distance.add(dist0);
 				distance.add(num0);
+				distance.add(dist1);
 				distance.add(num1);
+				distance.add(dist2);
 				distance.add(num2);
+				distance.add(dist3);
 				distance.add(num3);
+				distance.add(dist4);
 				distance.add(num4);
 				
 				addStation.add(addID);
-				addStation.add(stationID);
+				addStation.add(addStationID);
+				addID.setLayout(new FlowLayout(FlowLayout.LEFT));
+				addStationID.setLayout(new FlowLayout(FlowLayout.RIGHT));
+				
+				
 							
+				//Set ActionListeners on 3 buttons ****************************************************
+				showStation.addActionListener( (e) -> {
+					
+				}
+				);
+				
+				calHD.addActionListener( (e) -> {
+					
+					
+				}
+				);
+				
+				addID.addActionListener( (e) -> {
+					stationIDList.add(stationID.getText());
+				}
+				);
+				
+				
 				
 				}
 				
 				
 				
-				//Set ActionListeners on 3 buttons ****************************************************
+				
 				
 				
 				
@@ -129,13 +164,11 @@ public class HammingDistanceWindow extends JFrame{
 		//DefaultComboBoxModel to make combo box for station list *****************************
 		private DefaultComboBoxModel<String> getComboBoxModel(List<HammingDistance> list)
 		{
-			ArrayList<String> station = new ArrayList<String>();
-			
 			for (HammingDistance l : list){
-				station.add(l.toString());
+				stationIDList.add(l.toString());
 			}
 			
-			String[] comboBoxModel = station.toArray(new String[station.size()]);
+			String[] comboBoxModel = stationIDList.toArray(new String[stationIDList.size()]);
 			
 		    return new DefaultComboBoxModel<>(comboBoxModel);
 			

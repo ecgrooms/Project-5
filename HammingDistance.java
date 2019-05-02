@@ -26,14 +26,14 @@ public class HammingDistance {
     	// Use a buffered Reader on the file:
 		filename = "Mesonet.txt";
     	BufferedReader br = new BufferedReader(new FileReader(filename));
-        String letters;
-        letters = br.readLine();
-        letters = br.readLine();
-        letters = br.readLine();
+        String letters = "";
+//        letters = br.readLine();
+//        letters = br.readLine();
+//        letters = br.readLine();
         
         while(letters != null) {
 			
-        	String words = letters.substring(1, 5);
+        	String words = letters.substring(0, 4);
 			letters = br.readLine();
 			stid.add(words);
 			
@@ -65,7 +65,7 @@ public class HammingDistance {
 	int[] results;
 	
 	public int[] calculateAllSTIDNodes(String city) {
-		
+		int dist0 = 0;
 		int dist1 = 0;
 		int dist2 = 0;
 		int dist3 = 0;
@@ -84,6 +84,9 @@ public class HammingDistance {
 			}
 			else if(calculate2STIDNodes(stid.get(i), city) == 4) {
 				dist4++;
+			}
+			else if(calculate2STIDNodes(stid.get(i), city) == 0) {
+				dist0++;
 			}
 					
 			
