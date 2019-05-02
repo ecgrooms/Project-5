@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 import javax.swing.JTextField;
 
 public class HammingDistanceWindow extends JFrame{
@@ -21,9 +22,7 @@ public class HammingDistanceWindow extends JFrame{
 		
 		
 		public class HammingDistPanel extends JPanel{
-			
-		
-			
+				
 			
 			/**
 			 * 
@@ -87,6 +86,14 @@ public class HammingDistanceWindow extends JFrame{
 				panel1.add(hammingDist);
 				panel1.add(hammingDistNum);
 				
+				//dummies
+				JSlider slider = new JSlider(1, 4);
+				slider.setMinorTickSpacing(1);
+				slider.setPaintTicks(true);
+				slider.setPaintLabels(true);
+				slider.getValue();
+				panel2.add(slider);
+								
 				panel3.add(showStation);
 				
 				stationList.add(stationID);
